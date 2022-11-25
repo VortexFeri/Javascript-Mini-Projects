@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            background-image: linear-gradient(-60deg, #f02262, #ffeb70);
+            color: white
+        }
+        #title {
+            font-size: 2.25em;
+        }
+        #time {
+            font-size: 2.5em;
+        }
+        #buttons-container * {
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+            padding-block: 16px;
+            padding-inline: 32px;
+            font-size: 1.5em;
+            margin-inline: 5px;
+            transition: .2s;
+        }
+        #buttons-container :not([disabled]):hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        #buttons-container [disabled] {
+            background-color: azure;
+            opacity: .2;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Vanilla JavaScript Stopwatch</h1>
+    <p id="time">
+        <span id="minutes">00</span> :
+        <span id="seconds">00</span> :
+        <span id="miliseconds">00</span>
+    </p>
+    <div id="buttons-container">
+        <button id="start">Start</button>
+        <button id="stop" disabled>Stop</button>
+        <button id="reset" disabled>Reset</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
