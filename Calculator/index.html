@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+            <textarea id="input" type="text" disabled value="0">0</textarea>
+        <output></output>
+        <div class="row full">
+            <button value="clear">C</button>
+            <button value="paranthesis" class="op">()</button>
+            <button value="*" class="op">x</button>
+            <button value="/" class="op">&divide;</button>
+        </div>
+        <div class="row full">
+            <button value="7" class="number">7</button>
+            <button value="8" class="number">8</button>
+            <button value="9" class="number">9</button>
+            <button value="+" class="op">+</button>
+        </div>
+        <div class="row full">
+            <button value="4" class="number">4</button>
+            <button value="5" class="number">5</button>
+            <button value="6" class="number">6</button>
+            <button value="-" class="op">-</button>
+        </div>
+        <div class="row">
+            <button value="1" class="number">1</button>
+            <button value="2" class="number">2</button>
+            <button value="3" class="number">3</button>
+        </div>
+        <div class="row">
+            <button value="0" class="number">0</button>
+            <button value=".">.</button>
+            <button value="clear-all">CA</button>
+        </div>
+        <button value="equal">=</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

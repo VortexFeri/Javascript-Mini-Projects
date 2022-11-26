@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(120deg, #2C3E50, #000000);
+}
+
+#container {
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+        "in in in in"
+        "out out out out"
+        "full-1 full-1 full-1 full-1"
+        "full-2 full-2 full-2 full-2"
+        "full-3 full-3 full-3 full-3"
+        "row-1 row-1 row-1 equal"
+        "row-2 row-2 row-2 equal";
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    gap: 10px;
+    padding: 40px 20px;
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur(10px);
+}
+body::before, body::after {
+    content: '';
+    width: 300px;
+    aspect-ratio: 1/1;
+    background: rgba(83, 83, 176, 0.438);
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    top: 60vh;
+    left: 50vw;
+}
+body::after {
+    background: rgba(83, 148, 176, 0.438);
+    top: 25vh;
+    left: 75vh;
+}
+#container.expanded {
+    grid-template-areas: 
+        "in in in in"
+        "in in in in"
+        "out out out out"
+        "full-1 full-1 full-1 full-1"
+        "full-2 full-2 full-2 full-2"
+        "full-3 full-3 full-3 full-3"
+        "row-1 row-1 row-1 equal"
+        "row-2 row-2 row-2 equal";
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+::-webkit-scrollbar-track {
+    background: #252525;
+  }
+::-webkit-scrollbar-thumb {
+    background: #3b3b3b;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+#container.expanded #input {
+    word-wrap: break-word;
+    word-break: break-all;
+    line-break: loose;
+    overflow-wrap: break-word;
+    font-size: 2em;
+    height: 160px;
+}
+
+#input, output {
+    transition: height .2s;
+    padding: 10px;
+    width: 100%;
+    font-size: 3rem;
+    height: 90px;
+    border: none;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+    grid-area: in;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: -5px;
+}
+output {
+    grid-area: out;
+    height: 40px;
+    border-radius: 0 0 20px 20px;
+    margin-block: -20px 5px;
+    font-size: 2em;
+    line-height: 0;
+    color: rgba(95, 158, 160, 0.5);
+    transition: .2s;
+    position: relative;
+}
+output::after {
+    content: attr(data-value);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    margin: -10px;
+    margin-right: 10px;
+}
+#input.animate, output.animate {
+    color: transparent;
+    transition: .2s;
+}
+output.animate::after {
+    transform: translateY(-43px);
+    font-size: 1.5em;
+    color: white;
+    transition: .5s;
+}
+#container.expanded output.animate::after {
+    transform: translateY(-43px);
+    font-size: 1.5em;
+    color: white;
+    transition: .5s;
+}
+.op {
+    color: cadetblue;
+}
+.row {
+    grid-area: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+.row.full {
+    grid-area: full;
+}
+.row:nth-child(3) {grid-area: full-1;}
+.row:nth-child(4) {grid-area: full-2;}
+.row:nth-child(5) {grid-area: full-3;}
+.row:nth-child(6) {grid-area: row-1;}
+.row:nth-child(7) {grid-area: row-2;}
+button[value='equal'] {
+    width: 100%;
+    grid-area: equal;
+    margin-left: -5px;
+    clip-path: none;
+    border-radius: 20px;
+    background-color: cadetblue;
+    aspect-ratio: unset;
+}
+button[value='equal']:hover {
+    background-color: rgba(95, 158, 160, 0.5);
+}
+button[value='clear'], button[value='clear-all'] {
+    color: salmon
+}
+button {
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 10px;
+    margin-inline: 5px;
+    border-radius: 100%;
+    font-size: 2em;
+    border: 1px solid transparent;
+    background-color: rgba(240, 248, 255, 0.2);
+    color: #eee;
+    line-height: 100%
+}
+button:hover {
+    background-color: rgba(240, 248, 255, 0.1);
+    border: 1px solid cadetblue;
+}
